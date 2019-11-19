@@ -1,0 +1,35 @@
+Arrays
+Two sizings: compile-time or STATIC sized arrays AND
+Dynamic arrays
+Basic Syntax
+ T[k]. T is type - e.g., uint, String, even array or
+struct. k is size - num of elements
+ ^^^ is fixed-size array
+
+ T[ ] uint[]. <—dynamic array holding type uint
+ uint corresponds to Z+0
+ Int correspond to Z
+ uint[5]
+
+ uint[][5]. = [[], [], …]
+ If T is an array, T[k] is always an array containing k
+elements of type T
+ Arrays in Solidity are zero indexed
+ To declare an array, the full syntax is:
+
+ T[k] arrName
+Sp’ uint[][5] x memory
+Access the 2nd uint in the 3rd dynamic array. ——> x[2][1]
+Accessing an array past its end causes a failing assertion
+.push() method appends a new element to the end of a
+DYNAMIC STORAGE ARRAY. ***NB The method returns
+new length of the array
+.pop() method - DYNAMIC STORAGE ARRAYS - remove
+element from end of array
+MEMORY ARRAYS CANNOT BE RESIZED!!!!
+Notes:
+ Increasing the length of a storage array has constant gas
+costs because storage is assumed to be zero initialized.
+ Decreasing the length of a storage array has at least
+linear (often worst) gas costs, because it includes explicitly 
+clearing the removed elements similar to calling :ref:delete 
